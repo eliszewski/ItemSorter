@@ -13,21 +13,8 @@ public class ItemSorter {
     }
 
     public Item[] sort(Comparator<Item> comparator) {
-        int i,j;
-        Item temp;
-        for (i = 0; i < this.itemsToSort.length - 1 ; i++) {
-            boolean changed = false;
-            for (j = 0; j < this.itemsToSort.length - i - 1 ; j++) {
-                if(comparator.compare(this.itemsToSort[j],this.itemsToSort[j+1]) > 0){
-                    temp = this.itemsToSort[j];
-                    this.itemsToSort[j] = this.itemsToSort[j+1];
-                    this.itemsToSort[j + 1] = temp;
-                    changed = true;
-                }
-            }
-            if(!changed) break;
-        }
-        return this.itemsToSort;
+        Arrays.sort(itemsToSort,comparator);
+        return itemsToSort;
     }
 
 
